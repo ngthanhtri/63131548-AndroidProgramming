@@ -8,8 +8,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
     private DefaultListModel<String> luuds;
     private JList<String> hienthids;
     private JTextField nhapct;
-    private JLabel totalAmountLabel;
-    private double totalAmount = 0.0;
+    private JTextField nhapgiatrict;    
 
     public QuanLyChiTieu_NguyenThanhTri() {
         setTitle("Ứng dụng quản lý chi tiêu");
@@ -25,7 +24,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         labelhienthids.add(scrollPane, BorderLayout.CENTER);
         add(labelhienthids, BorderLayout.CENTER);
 
-        JPanel labelnhapct = new JPanel(new GridLayout(5, 2, 5, 5));
+        JPanel labelnhapct = new JPanel(new GridLayout(6, 2, 5, 5)); 
         labelnhapct.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel labelloaict = new JLabel("Loại Chi Tiêu:");
@@ -35,6 +34,13 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         nhapct = new JTextField();
         labelnhapct.add(nhapct);
 
+        JLabel labelGiaTri = new JLabel("Giá Trị Chi Tiêu:");
+        labelGiaTri.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        labelnhapct.add(labelGiaTri);
+
+        nhapgiatrict = new JTextField();
+        labelnhapct.add(nhapgiatrict);
+
         JButton btnthemct = new JButton("Thêm Chi Tiêu");
         btnthemct.setFont(new Font("Times New Roman", Font.BOLD, 14));
         btnthemct.setBackground(Color.GRAY);
@@ -43,9 +49,11 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String ct = nhapct.getText().trim();
-              
-                    luuds.addElement(ct);
-                    nhapct.setText("");                               
+                String giaTri = nhapgiatrict.getText().trim(); 
+                double value = Double.parseDouble(giaTri); 
+                luuds.addElement(ct + " - " + value + "K"); 
+                nhapct.setText("");
+                nhapgiatrict.setText("");                                
             }
         });
         labelnhapct.add(btnthemct);
@@ -55,7 +63,6 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         setVisible(true);
     }
 
- 
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
