@@ -4,13 +4,14 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
     private DefaultListModel<String> luuds;
     private JList<String> hienthids;
     private JTextField nhapct;
     private JTextField nhapgiatrict; 
-    private JTextField nhapghichu; // Thêm JTextField cho ghi chú
+    private JTextField nhapghichu;
     private JLabel labeltongct;
     private double tongct = 0;
     private JDateChooser ngayct;
@@ -31,7 +32,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
 
         add(listPanel, BorderLayout.CENTER);
 
-        JPanel labelnhapct = new JPanel(new GridLayout(6, 2, 5, 5)); 
+        JPanel labelnhapct = new JPanel(new GridLayout(7, 2, 5, 5)); 
         labelnhapct.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel labelloaict = new JLabel("Loại chi tiêu:");
@@ -53,6 +54,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         labelnhapct.add(labelngayct);
 
         ngayct = new JDateChooser();
+        ngayct.setCalendar(Calendar.getInstance());
         labelnhapct.add(ngayct);
         
         JLabel labelghichu = new JLabel("Ghi chú:"); 
@@ -61,7 +63,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         
         nhapghichu = new JTextField(); 
         labelnhapct.add(nhapghichu);
-
+        
         JButton btnthemct = new JButton("Thêm Chi Tiêu");
         btnthemct.setFont(new Font("Times New Roman", Font.BOLD, 14));
         btnthemct.setBackground(Color.GRAY);
@@ -70,20 +72,67 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String ct = nhapct.getText().trim();
-                String giatri = nhapgiatrict.getText().trim(); 
+                String gt = nhapgiatrict.getText().trim(); 
                 String ngay = ((JTextField)ngayct.getDateEditor().getUiComponent()).getText();
                 String ghichu = nhapghichu.getText().trim(); 
                 
-                double sum = Double.parseDouble(giatri);
-                luuds.addElement(ct + " - " + sum + "K" + " - " + ngay + " - " + ghichu); 
+                double giatri = Double.parseDouble(gt);
+                luuds.addElement(ct + " - " + giatri + "K" + " - " + ngay + " - " + ghichu); 
                 nhapct.setText("");
                 nhapgiatrict.setText("");
                 nhapghichu.setText("");
-                TinhTongCT(sum);
-                ngayct.setCalendar(null);
+                TinhTongCT(giatri);
+                ngayct.setCalendar(Calendar.getInstance());
             }
         });
         labelnhapct.add(btnthemct);
+        
+        JButton btnXoa = new JButton("Xóa chi tiêu");
+        btnXoa.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        btnXoa.setBackground(Color.GRAY);
+        btnXoa.setForeground(Color.WHITE);
+        btnXoa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int ktluachon = hienthids.getSelectedIndex();
+                if (ktluachon != -1) {
+                    String chitieudachon = luuds.getElementAt(ktluachon);
+                    luuds.removeElement(chitieudachon);
+                    double giatri = Double.parseDouble(chitieudachon.split(" - ")[1].replace("K", ""));
+                    tongct -= giatri;
+                    labeltongct.setText("Tổng chi tiêu:" + tongct +"K");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn một mục để xóa.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        labelnhapct.add(btnXoa);
+        
+        JButton btnSua = new JButton("Sửa chi tiêu");
+        btnSua.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        btnSua.setBackground(Color.GRAY);
+        btnSua.setForeground(Color.WHITE);
+        btnSua.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int ktluachon = hienthids.getSelectedIndex();
+                if (ktluachon != -1) {
+                    String chitieudachon = luuds.getElementAt(ktluachon);
+                    String[] tach = chitieudachon.split(" - ");
+                    nhapct.setText(tach[0]);
+                    nhapgiatrict.setText(tach[1].replace("K", ""));
+                    ngayct.setCalendar(Calendar.getInstance());
+                    nhapghichu.setText(tach.length > 3 ? tach[3] : "");
+                    luuds.removeElement(chitieudachon);
+                    double giatri = Double.parseDouble(tach[1].replace("K", ""));
+                    tongct -= giatri;
+                    labeltongct.setText("Tổng chi tiêu:" + tongct +"K");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn một mục để sửa.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        labelnhapct.add(btnSua);
 
         labeltongct = new JLabel("Tổng chi tiêu: 0K");
         labeltongct.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -108,3 +157,4 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         });
     }
 }
+
