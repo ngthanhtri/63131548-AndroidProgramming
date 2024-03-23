@@ -8,7 +8,9 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
     private DefaultListModel<String> luuds;
     private JList<String> hienthids;
     private JTextField nhapct;
-    private JTextField nhapgiatrict;    
+    private JTextField nhapgiatrict; 
+    private JLabel labeltongct;
+    private double tongct = 0;
 
     public QuanLyChiTieu_NguyenThanhTri() {
         setTitle("Ứng dụng quản lý chi tiêu");
@@ -49,20 +51,30 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String ct = nhapct.getText().trim();
-                String giaTri = nhapgiatrict.getText().trim(); 
-                double value = Double.parseDouble(giaTri); 
-                luuds.addElement(ct + " - " + value + "K"); 
+                String giatri = nhapgiatrict.getText().trim(); 
+               
+                double sum = Double.parseDouble(giatri);
+                luuds.addElement(ct + " - " + sum + "K");
                 nhapct.setText("");
-                nhapgiatrict.setText("");                                
+                nhapgiatrict.setText("");
+                TinhTongCT(sum);        
             }
         });
         labelnhapct.add(btnthemct);
-       
+
+        labeltongct = new JLabel("Tổng chi tiêu: 0K");
+        labeltongct.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        labelnhapct.add(labeltongct);
+
         add(labelnhapct, BorderLayout.SOUTH);
 
         setVisible(true);
     }
 
+    private void TinhTongCT(double sum) {
+    	tongct += sum; 
+        labeltongct.setText("Tổng chi tiêu:" + tongct +"K");
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
