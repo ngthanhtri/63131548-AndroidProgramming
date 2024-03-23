@@ -10,6 +10,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
     private JList<String> hienthids;
     private JTextField nhapct;
     private JTextField nhapgiatrict; 
+    private JTextField nhapghichu; // Thêm JTextField cho ghi chú
     private JLabel labeltongct;
     private double tongct = 0;
     private JDateChooser ngayct;
@@ -30,7 +31,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
 
         add(listPanel, BorderLayout.CENTER);
 
-        JPanel labelnhapct = new JPanel(new GridLayout(5, 2, 5, 5));
+        JPanel labelnhapct = new JPanel(new GridLayout(6, 2, 5, 5)); 
         labelnhapct.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel labelloaict = new JLabel("Loại chi tiêu:");
@@ -53,6 +54,13 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
 
         ngayct = new JDateChooser();
         labelnhapct.add(ngayct);
+        
+        JLabel labelghichu = new JLabel("Ghi chú:"); 
+        labelghichu.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        labelnhapct.add(labelghichu);
+        
+        nhapghichu = new JTextField(); 
+        labelnhapct.add(nhapghichu);
 
         JButton btnthemct = new JButton("Thêm Chi Tiêu");
         btnthemct.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -64,11 +72,13 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
                 String ct = nhapct.getText().trim();
                 String giatri = nhapgiatrict.getText().trim(); 
                 String ngay = ((JTextField)ngayct.getDateEditor().getUiComponent()).getText();
+                String ghichu = nhapghichu.getText().trim(); 
                 
                 double sum = Double.parseDouble(giatri);
-                luuds.addElement(ct + " - " + sum + "K" + " - " + ngay);
+                luuds.addElement(ct + " - " + sum + "K" + " - " + ngay + " - " + ghichu); 
                 nhapct.setText("");
                 nhapgiatrict.setText("");
+                nhapghichu.setText("");
                 TinhTongCT(sum);
                 ngayct.setCalendar(null);
             }
