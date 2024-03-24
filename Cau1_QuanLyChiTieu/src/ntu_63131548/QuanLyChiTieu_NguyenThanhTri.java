@@ -89,7 +89,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         
         JButton btnXoa = new JButton("Xóa chi tiêu");
         btnXoa.setFont(new Font("Times New Roman", Font.BOLD, 14));
-        btnXoa.setBackground(Color.GRAY);
+        btnXoa.setBackground(Color.RED);
         btnXoa.setForeground(Color.WHITE);
         btnXoa.addActionListener(new ActionListener() {
             @Override
@@ -110,7 +110,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         
         JButton btnSua = new JButton("Sửa chi tiêu");
         btnSua.setFont(new Font("Times New Roman", Font.BOLD, 14));
-        btnSua.setBackground(Color.GRAY);
+        btnSua.setBackground(Color.BLUE);
         btnSua.setForeground(Color.WHITE);
         btnSua.addActionListener(new ActionListener() {
             @Override
