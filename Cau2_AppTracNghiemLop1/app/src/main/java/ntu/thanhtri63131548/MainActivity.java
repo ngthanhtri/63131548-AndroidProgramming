@@ -69,18 +69,74 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private List<CauHoi> taodscauhoi() {
+        List<CauHoi> cauhoi = new ArrayList<>();
+        Random r = new Random();
 
+        for (int i = 0; i < 10; i++) {
+            int soA = r.nextInt(10);
+            int soB = r.nextInt(10);
+            int toantu = r.nextInt(4);
+
+            String ch;
+            int kq;
+
+            switch (toantu) {
+                case 0:
+                    ch = soA + " + " + soB + " = ?";
+                    kq = soA + soB;
+                    break;
+                case 1:
+                    ch = soA + " - " + soB + " = ?";
+                    kq = soA - soB;
+                    break;
+                case 2:
+                    ch = soA + " × " + soB + " = ?";
+                    kq = soA * soB;
+                    break;
+                case 3:
+                    if (soB == 0) {
+                        soB = 1;
+                    }
+                    ch = soA * soB + " ÷ " + soB + " = ?";
+                    kq = soA;
+                    break;
+                default:
+                    ch = "";
+                    kq = 0;
+                    break;
+            }
+
+            List<Integer> dapAn = new ArrayList<>();
+            for (int j = 0; j < 4; j++) {
+                if (j == 0) {
+                    dapAn.add(kq);
+                } else {
+                    int randNum;
+                    do {
+                        randNum = r.nextInt(20);
+                    } while (dapAn.contains(randNum));
+                    dapAn.add(randNum);
+                }
+            }
+
+            Collections.shuffle(dapAn);
+            cauhoi.add(new CauHoi(ch, dapAn));
+        }
+
+        return cauhoi;
+    }
 
     private void hienthich(CauHoi c) {
         TVcauhoi.setText(c.ChonCauHoi());
         rdgrcautraloi.removeAllViews();
+
         for (int i = 0; i < c.ChonDapAn().size(); i++) {
             RadioButton rb = new RadioButton(this);
             rb.setText(Integer.toString(c.ChonDapAn().get(i)));
             rdgrcautraloi.addView(rb);
         }
     }
-
 
     private void kiemtrakq(CauHoi question) {
         int id = rdgrcautraloi.getCheckedRadioButtonId();
