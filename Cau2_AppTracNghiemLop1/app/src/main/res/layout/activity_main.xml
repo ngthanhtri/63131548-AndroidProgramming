@@ -19,12 +19,48 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
+    <RadioGroup
+        android:id="@+id/rdgrcautraloi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVcauhoi"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <RadioButton
+            android:id="@+id/rdbtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đáp án 1" />
+
+        <RadioButton
+            android:id="@+id/rdbtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đáp án 2" />
+
+        <RadioButton
+            android:id="@+id/rdbtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đáp án 3" />
+
+        <RadioButton
+            android:id="@+id/rdbtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đáp án 4" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnnop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nộp"
+        app:layout_constraintTop_toBottomOf="@+id/rdgrcautraloi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
