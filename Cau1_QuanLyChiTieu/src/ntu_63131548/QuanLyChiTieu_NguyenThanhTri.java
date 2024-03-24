@@ -87,11 +87,11 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
         });
         labelnhapct.add(btnthemct);
         
-        JButton btnXoa = new JButton("Xóa chi tiêu");
-        btnXoa.setFont(new Font("Times New Roman", Font.BOLD, 14));
-        btnXoa.setBackground(Color.RED);
-        btnXoa.setForeground(Color.WHITE);
-        btnXoa.addActionListener(new ActionListener() {
+        JButton btnxoact = new JButton("Xóa chi tiêu");
+        btnxoact.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        btnxoact.setBackground(Color.RED);
+        btnxoact.setForeground(Color.WHITE);
+        btnxoact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int ktluachon = hienthids.getSelectedIndex();
@@ -106,13 +106,13 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
                 }
             }
         });
-        labelnhapct.add(btnXoa);
+        labelnhapct.add(btnxoact);
         
-        JButton btnSua = new JButton("Sửa chi tiêu");
-        btnSua.setFont(new Font("Times New Roman", Font.BOLD, 14));
-        btnSua.setBackground(Color.BLUE);
-        btnSua.setForeground(Color.WHITE);
-        btnSua.addActionListener(new ActionListener() {
+        JButton btnsuact = new JButton("Sửa chi tiêu");
+        btnsuact.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        btnsuact.setBackground(Color.BLUE);
+        btnsuact.setForeground(Color.WHITE);
+        btnsuact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int ktluachon = hienthids.getSelectedIndex();
@@ -132,7 +132,7 @@ public class QuanLyChiTieu_NguyenThanhTri extends JFrame {
                 }
             }
         });
-        labelnhapct.add(btnSua);
+        labelnhapct.add(btnsuact);
 
         labeltongct = new JLabel("Tổng chi tiêu: 0K");
         labeltongct.setFont(new Font("Times New Roman", Font.BOLD, 14));
