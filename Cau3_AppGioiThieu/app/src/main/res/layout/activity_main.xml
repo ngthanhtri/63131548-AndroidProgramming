@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="0dp"
     tools:context=".MainActivity">
 
     <ImageView
@@ -23,13 +23,18 @@
         android:id="@+id/TVhoten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/textview_ten"
+        android:padding="12dp"
+        android:text="Nguyễn Thành Trí"
+        android:textColor="#F0F0F6"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="Nguyễn Thành Trí"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btnttsinhvien"
