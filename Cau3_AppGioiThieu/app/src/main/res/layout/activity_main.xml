@@ -92,7 +92,7 @@
 
     <TextView
         android:id="@+id/ttct0"
-        android:layout_width="30dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Nguyễn Thành Trí  63131548    63.MMT "
         android:textSize="18sp"
@@ -108,7 +108,7 @@
 
     <TextView
         android:id="@+id/ttct1"
-        android:layout_width="30dp"
+        android:layout_width="00dp"
         android:layout_height="wrap_content"
         android:text="Ngày sinh: 21/12/2002, Giới tính: Nam"
         android:textSize="18sp"
@@ -124,7 +124,7 @@
 
     <TextView
         android:id="@+id/ttct2"
-        android:layout_width="30dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Số điện thoại: 0123456789, Mail: tri.nt.63cntt@ntu.edu.vn"
         android:textSize="18sp"
@@ -139,7 +139,7 @@
 
     <TextView
         android:id="@+id/ttct3"
-        android:layout_width="30dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Sở thích: xxxxxxxx, Dự định: xxxxxxxxx"
         android:textSize="18sp"

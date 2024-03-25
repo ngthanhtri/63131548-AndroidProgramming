@@ -29,33 +29,33 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayDetail(0);
+                hienthittct(0);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayDetail(1);
+                hienthittct(1);
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayDetail(2);
+                hienthittct(2);
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayDetail(3);
+                hienthittct(3);
             }
         });
     }
 
-    private void displayDetail(int index) {
+    private void hienthittct(int index) {
         for (int i = 0; i < textViewArray.length; i++) {
             if (i == index) {
                 textViewArray[i].setVisibility(View.VISIBLE);
