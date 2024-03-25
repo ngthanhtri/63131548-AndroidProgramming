@@ -20,26 +20,48 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp"/>
 
-    <TextView
-        android:id="@+id/TVttcanhan"
+    <Button
+        android:id="@+id/btnttsinhvien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Thông tin sinh viên"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVhoten"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnttcanhan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="Thông tin cá nhân"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVhoten"
+        app:layout_constraintTop_toBottomOf="@+id/btnttsinhvien"
         android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:id="@+id/TVttlienlac"
+    <Button
+        android:id="@+id/btnttlienlac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="Thông tin liên lạc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVttcanhan"
+        app:layout_constraintTop_toBottomOf="@+id/btnttcanhan"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnttkhac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Thông tin khác"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnttlienlac"
         android:layout_marginTop="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
