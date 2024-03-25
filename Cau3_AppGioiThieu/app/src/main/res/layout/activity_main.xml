@@ -91,53 +91,67 @@
         app:layout_constraintTop_toBottomOf="@+id/btnttlienlac" />
 
     <TextView
-        android:id="@+id/ttct1"
-        android:layout_width="0dp"
+        android:id="@+id/ttct0"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:text="Thông tin chi tiết 1"
+        android:text="Nguyễn Thành Trí  63131548    63.MMT "
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnttsinhvien"
+        app:layout_constraintTop_toBottomOf="@id/btnttkhac"
         android:layout_marginTop="20dp"
         android:background="@drawable/textview_ten"
-        android:textColor="#F0F0F6"/>
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/ttct1"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh: 21/12/2002, Giới tính: Nam"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttct0"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_ten"
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
 
     <TextView
         android:id="@+id/ttct2"
-        android:layout_width="0dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:text="Thông tin chi tiết 2"
-        android:textSize="16sp"
+        android:text="Số điện thoại: 0123456789, Mail: tri.nt.63cntt@ntu.edu.vn"
+        android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ttct1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/textview_ten"
-        android:textColor="#F0F0F6"/>
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
 
     <TextView
         android:id="@+id/ttct3"
-        android:layout_width="0dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:text="Thông tin chi tiết 3"
-        android:textSize="14sp"
+        android:text="Sở thích: xxxxxxxx, Dự định: xxxxxxxxx"
+        android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ttct2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/textview_ten"
-        android:textColor="#F0F0F6"/>
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
