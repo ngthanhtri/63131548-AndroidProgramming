@@ -3,6 +3,7 @@ package ntu.thanhtri63131548;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
@@ -10,52 +11,77 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     private ConstraintSet constraintSet = new ConstraintSet();
+    private ConstraintLayout constraintLayout;
+
+    private TextView ttct1, ttct2, ttct3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        constraintLayout = findViewById(R.id.constraint_layout);
+
         Button btnttsinhvien = findViewById(R.id.btnttsinhvien);
         Button btnttcanhan = findViewById(R.id.btnttcanhan);
         Button btnttlienlac = findViewById(R.id.btnttlienlac);
         Button btnttkhac = findViewById(R.id.btnttkhac);
 
-        constraintSet.clone(this, R.layout.activity_main);
+        ttct1 = findViewById(R.id.ttct1);
+        ttct2 = findViewById(R.id.ttct2);
+        ttct3 = findViewById(R.id.ttct3);
+
+        constraintSet.clone(constraintLayout);
 
         btnttsinhvien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                constraintSet.clear(R.id.btnttsinhvien);
-                constraintSet.connect(R.id.btnttsinhvien, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
-                constraintSet.applyTo((ConstraintLayout) findViewById(R.id.constraint_layout));
+                ttct1.setVisibility(View.GONE);
+                ttct2.setVisibility(View.GONE);
+                ttct3.setVisibility(View.GONE);
+
+                ttct1.setVisibility(View.VISIBLE);
+                ttct2.setVisibility(View.VISIBLE);
+                ttct3.setVisibility(View.VISIBLE);
             }
         });
 
         btnttcanhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                constraintSet.clear(R.id.btnttcanhan);
-                constraintSet.connect(R.id.btnttcanhan, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
-                constraintSet.applyTo((ConstraintLayout) findViewById(R.id.constraint_layout));
+                ttct1.setVisibility(View.GONE);
+                ttct2.setVisibility(View.GONE);
+                ttct3.setVisibility(View.GONE);
+
+                ttct1.setVisibility(View.VISIBLE);
+                ttct2.setVisibility(View.VISIBLE);
+                ttct3.setVisibility(View.VISIBLE);
             }
         });
 
         btnttlienlac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                constraintSet.clear(R.id.btnttlienlac);
-                constraintSet.connect(R.id.btnttlienlac, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
-                constraintSet.applyTo((ConstraintLayout) findViewById(R.id.constraint_layout));
+                ttct1.setVisibility(View.GONE);
+                ttct2.setVisibility(View.GONE);
+                ttct3.setVisibility(View.GONE);
+
+                ttct1.setVisibility(View.VISIBLE);
+                ttct2.setVisibility(View.VISIBLE);
+                ttct3.setVisibility(View.VISIBLE);
             }
         });
 
         btnttkhac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                constraintSet.clear(R.id.btnttkhac);
-                constraintSet.connect(R.id.btnttkhac, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
-                constraintSet.applyTo((ConstraintLayout) findViewById(R.id.constraint_layout));
+                ttct1.setVisibility(View.GONE);
+                ttct2.setVisibility(View.GONE);
+                ttct3.setVisibility(View.GONE);
+
+                ttct1.setVisibility(View.VISIBLE);
+                ttct2.setVisibility(View.VISIBLE);
+                ttct3.setVisibility(View.VISIBLE);
             }
         });
     }
