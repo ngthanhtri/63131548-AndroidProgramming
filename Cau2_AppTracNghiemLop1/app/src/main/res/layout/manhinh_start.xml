@@ -7,19 +7,33 @@
     android:background="#6CF3E3"
     tools:context=".StartManHinh">
 
+    <!-- ImageView để hiển thị ảnh nền -->
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+    android:src="@drawable/bg"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
     <TextView
         android:id="@+id/TVtenapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ai thông minh hơn học sinh lớp 1"
-        android:textSize="24sp"
-        android:textColor="#E8F3F6"
-        android:padding="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/tieudetrochoi"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Trò chơi ai thông minh hơn học sinh lớp 1"
+        android:textColor="#EDEDF4"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="70dp"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnchoi"
