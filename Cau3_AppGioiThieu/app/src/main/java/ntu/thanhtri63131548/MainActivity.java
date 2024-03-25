@@ -1,88 +1,67 @@
 package ntu.thanhtri63131548;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import android.os.Bundle;
-
 public class MainActivity extends AppCompatActivity {
-    private ConstraintSet constraintSet = new ConstraintSet();
-    private ConstraintLayout constraintLayout;
 
-    private TextView ttct1, ttct2, ttct3;
+    private TextView[] textViewArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        constraintLayout = findViewById(R.id.constraint_layout);
+        final TextView ttct0 = findViewById(R.id.ttct0);
+        final TextView ttct1 = findViewById(R.id.ttct1);
+        final TextView ttct2 = findViewById(R.id.ttct2);
+        final TextView ttct3 = findViewById(R.id.ttct3);
+        textViewArray = new TextView[]{ttct0, ttct1, ttct2, ttct3};
 
-        Button btnttsinhvien = findViewById(R.id.btnttsinhvien);
-        Button btnttcanhan = findViewById(R.id.btnttcanhan);
-        Button btnttlienlac = findViewById(R.id.btnttlienlac);
-        Button btnttkhac = findViewById(R.id.btnttkhac);
+        Button btn1 = findViewById(R.id.btnttsinhvien);
+        Button btn2 = findViewById(R.id.btnttcanhan);
+        Button btn3 = findViewById(R.id.btnttlienlac);
+        Button btn4 = findViewById(R.id.btnttkhac);
 
-        ttct1 = findViewById(R.id.ttct1);
-        ttct2 = findViewById(R.id.ttct2);
-        ttct3 = findViewById(R.id.ttct3);
-
-        constraintSet.clone(constraintLayout);
-
-        btnttsinhvien.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ttct1.setVisibility(View.GONE);
-                ttct2.setVisibility(View.GONE);
-                ttct3.setVisibility(View.GONE);
-
-                ttct1.setVisibility(View.VISIBLE);
-                ttct2.setVisibility(View.VISIBLE);
-                ttct3.setVisibility(View.VISIBLE);
+                displayDetail(0);
             }
         });
 
-        btnttcanhan.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ttct1.setVisibility(View.GONE);
-                ttct2.setVisibility(View.GONE);
-                ttct3.setVisibility(View.GONE);
-
-                ttct1.setVisibility(View.VISIBLE);
-                ttct2.setVisibility(View.VISIBLE);
-                ttct3.setVisibility(View.VISIBLE);
+                displayDetail(1);
             }
         });
 
-        btnttlienlac.setOnClickListener(new View.OnClickListener() {
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ttct1.setVisibility(View.GONE);
-                ttct2.setVisibility(View.GONE);
-                ttct3.setVisibility(View.GONE);
-
-                ttct1.setVisibility(View.VISIBLE);
-                ttct2.setVisibility(View.VISIBLE);
-                ttct3.setVisibility(View.VISIBLE);
+                displayDetail(2);
             }
         });
 
-        btnttkhac.setOnClickListener(new View.OnClickListener() {
+        btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ttct1.setVisibility(View.GONE);
-                ttct2.setVisibility(View.GONE);
-                ttct3.setVisibility(View.GONE);
-
-                ttct1.setVisibility(View.VISIBLE);
-                ttct2.setVisibility(View.VISIBLE);
-                ttct3.setVisibility(View.VISIBLE);
+                displayDetail(3);
             }
         });
+    }
+
+    private void displayDetail(int index) {
+        for (int i = 0; i < textViewArray.length; i++) {
+            if (i == index) {
+                textViewArray[i].setVisibility(View.VISIBLE);
+            } else {
+                textViewArray[i].setVisibility(View.GONE);
+            }
+        }
     }
 }
