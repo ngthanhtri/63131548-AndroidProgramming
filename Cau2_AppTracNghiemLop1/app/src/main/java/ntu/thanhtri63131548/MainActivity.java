@@ -7,7 +7,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,12 +22,14 @@ public class MainActivity extends AppCompatActivity {
     private Button btntruoc;
     private List<CauHoi> dscauhoi;
     private int giatricauhoi = 0;
+    private int diem = 0;
+    private int socaudatraloi = 1;
+    private int[] dapAnDaChon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         TVcauhoi = findViewById(R.id.TVcauhoi);
         rdgrcautraloi = findViewById(R.id.rdgrcautraloi);
@@ -36,23 +37,30 @@ public class MainActivity extends AppCompatActivity {
         btnsau = findViewById(R.id.btnsau);
         btntruoc = findViewById(R.id.btntruoc);
 
-        dscauhoi = taodscauhoi();
-
-        hienthich(dscauhoi.get(giatricauhoi));
-
         btnnop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kiemtrakq(dscauhoi.get(giatricauhoi));
+                if (socaudatraloi < 10) {
+                    Toast.makeText(MainActivity.this, "Số điểm của bạn là: 100", Toast.LENGTH_SHORT).show();
+                } else {
+                    kiemtrakq(dscauhoi.get(giatricauhoi));
+                }
             }
         });
 
         btnsau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                luuDapAnDaChon();
                 if (giatricauhoi < dscauhoi.size() - 1) {
                     giatricauhoi++;
                     hienthich(dscauhoi.get(giatricauhoi));
+                } else {
+                    if (socaudatraloi < 10) {
+                        Toast.makeText(MainActivity.this, "Bạn đã trả lời hết 10 câu hỏi. Hãy ấn Nộp để xem điểm số.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Bạn chưa hoàn thành tất cả câu hỏi!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -60,12 +68,28 @@ public class MainActivity extends AppCompatActivity {
         btntruoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                luuDapAnDaChon();
                 if (giatricauhoi > 0) {
                     giatricauhoi--;
                     hienthich(dscauhoi.get(giatricauhoi));
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        batDauTroChoi();
+    }
+
+    private void batDauTroChoi() {
+        dscauhoi = taodscauhoi();
+        giatricauhoi = 0;
+        socaudatraloi = 1;
+        diem = 0;
+        dapAnDaChon = new int[dscauhoi.size()];
+        hienthich(dscauhoi.get(giatricauhoi));
     }
 
     private List<CauHoi> taodscauhoi() {
@@ -130,10 +154,15 @@ public class MainActivity extends AppCompatActivity {
         TVcauhoi.setText(c.ChonCauHoi());
         rdgrcautraloi.removeAllViews();
 
-        for (int i = 0; i < c.ChonDapAn().size(); i++) {
+        List<Integer> dapAn = c.ChonDapAn();
+        for (int i = 0; i < dapAn.size(); i++) {
             RadioButton rb = new RadioButton(this);
-            rb.setText(Integer.toString(c.ChonDapAn().get(i)));
+            rb.setText(Integer.toString(dapAn.get(i)));
             rdgrcautraloi.addView(rb);
+
+            if (dapAnDaChon[giatricauhoi] != 0 && dapAnDaChon[giatricauhoi] == dapAn.get(i)) {
+                rb.setChecked(true);
+            }
         }
     }
 
@@ -142,17 +171,31 @@ public class MainActivity extends AppCompatActivity {
         if (id != -1) {
             RadioButton selectedRadioButton = findViewById(id);
             int n = Integer.parseInt(selectedRadioButton.getText().toString());
-            if (n == question.ChonCauTraLoi()) {
-                Toast.makeText(MainActivity.this, "Đúng!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(MainActivity.this, "Sai!", Toast.LENGTH_SHORT).show();
+
+            if (dapAnDaChon[giatricauhoi] != 0) {
+                if (n == question.ChonCauTraLoi()) {
+                    diem += 10;
+                }
+
+                dapAnDaChon[giatricauhoi] = n;
+                socaudatraloi++;
+
+                if (socaudatraloi < 10) {
+                    Toast.makeText(MainActivity.this, "Bạn đã trả lời hết 10 câu hỏi. Hãy ấn Nộp để xem điểm số.", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             Toast.makeText(MainActivity.this, "Hãy chọn đáp án!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void luuDapAnDaChon() {
+        int id = rdgrcautraloi.getCheckedRadioButtonId();
+        if (id != -1) {
+            RadioButton selectedRadioButton = findViewById(id);
+            int n = Integer.parseInt(selectedRadioButton.getText().toString());
+            dapAnDaChon[giatricauhoi] = n;
+        }
+    }
 }
-
-
-
 
