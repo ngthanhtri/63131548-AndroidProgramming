@@ -7,7 +7,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,14 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btnnop;
     private Button btnsau;
     private Button btntruoc;
-
     private List<CauHoi> dscauhoi;
     private int giatricauhoi = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lienket2manhinh);
+        setContentView(R.layout.activity_main);
 
 
         TVcauhoi = findViewById(R.id.TVcauhoi);
@@ -40,15 +39,6 @@ public class MainActivity extends AppCompatActivity {
         dscauhoi = taodscauhoi();
 
         hienthich(dscauhoi.get(giatricauhoi));
-
-        Button btnchoi = findViewById(R.id.btnchoi);
-        btnchoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnnop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,12 +143,12 @@ public class MainActivity extends AppCompatActivity {
             RadioButton selectedRadioButton = findViewById(id);
             int n = Integer.parseInt(selectedRadioButton.getText().toString());
             if (n == question.ChonCauTraLoi()) {
-                Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Đúng!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(MainActivity.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Sai!", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(MainActivity.this, "Please select an answer!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Hãy chọn đáp án!", Toast.LENGTH_SHORT).show();
         }
     }
 }
