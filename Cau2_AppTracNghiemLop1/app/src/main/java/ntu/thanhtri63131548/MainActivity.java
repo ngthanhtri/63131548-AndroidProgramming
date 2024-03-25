@@ -7,9 +7,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lienket2manhinh);
+
 
         TVcauhoi = findViewById(R.id.TVcauhoi);
         rdgrcautraloi = findViewById(R.id.rdgrcautraloi);
@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         dscauhoi = taodscauhoi();
 
         hienthich(dscauhoi.get(giatricauhoi));
+
+        Button btnchoi = findViewById(R.id.btnchoi);
+        btnchoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnnop.setOnClickListener(new View.OnClickListener() {
             @Override
