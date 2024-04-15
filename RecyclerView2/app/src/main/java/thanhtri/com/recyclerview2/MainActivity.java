@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
     }
     ArrayList<LandScape> getDataForViewPager() {
         ArrayList<LandScape> dsDuLieu = new ArrayList<LandScape>();
-        LandScape landScape1 = new LandScape("nobita", "NÔ BI TA");
+        LandScape landScape1 = new LandScape("ronaldo", "Ronaldo siuuuuu");
         dsDuLieu.add(landScape1);
-        dsDuLieu.add(new LandScape("doramon", "ĐÔ RÊ MON"));
-        dsDuLieu.add(new LandScape("tom", "MÈO TOM"));
-        dsDuLieu.add(new LandScape("jerry", "CHUỘT JERRY"));
+        dsDuLieu.add(new LandScape("messi", "Messi"));
+        dsDuLieu.add(new LandScape("mbappe", "Mbappe"));
+        dsDuLieu.add(new LandScape("neymar", "Neymar"));
         return dsDuLieu;
     }
 }
