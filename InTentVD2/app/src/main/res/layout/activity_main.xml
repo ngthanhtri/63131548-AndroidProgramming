@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@drawable/bgmain">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:text="Màn hình chính"
-        android:onClick="ChuyenManHinh"
         android:textColor="#87D617"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +26,7 @@
         android:layout_height="100dp"
         android:textSize="20dp"
         android:text="Đăng nhập"
+        android:onClick="ChuyenManHinh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

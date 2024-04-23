@@ -4,68 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityHome">
+    tools:context=".MainActivity"
+    android:background="@drawable/bghome">
 
     <TextView
-        android:id="@+id/TVcauhoi"
+        android:id="@+id/TVManhinhTroChoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Câu hỏi"
+        android:layout_marginTop="68dp"
+        android:text="MÀN HÌNH TRÒ CHƠI"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
-
-    <RadioGroup
-        android:id="@+id/rdgrcautraloi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVcauhoi"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
-
-        <RadioButton
-            android:id="@+id/rdbtn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đáp án 1" />
-
-        <RadioButton
-            android:id="@+id/rdbtn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đáp án 2" />
-
-        <RadioButton
-            android:id="@+id/rdbtn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đáp án 3" />
-
-        <RadioButton
-            android:id="@+id/rdbtn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đáp án 4" />
-    </RadioGroup>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/TVdapan"
-        android:layout_width="229dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="116dp"
-        android:text="Đáp án"
-        android:gravity="center"
+        android:id="@+id/TVChaoMung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="8dp"
+        android:text="Chào Mừng"
         android:textColor="#000000"
         android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/TVUsername"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rdgrcautraloi" />
+        app:layout_constraintTop_toBottomOf="@+id/TVManhinhTroChoi" />
+
+    <TextView
+        android:id="@+id/TVUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TVChaoMung"
+        app:layout_constraintTop_toBottomOf="@+id/TVManhinhTroChoi" />
+
+    <Button
+        android:id="@+id/btnChoi"
+        android:layout_width="150dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="128dp"
+        android:text="Chơi"
+        android:onClick="ChuyenManHinhQuiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVUsername" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,8 +29,8 @@ public class ActivityLogin extends AppCompatActivity {
                 String username = edtUserName.getText().toString().trim();
                 String password = edtPass.getText().toString().trim();
                 String email = edtEmail.getText().toString().trim();
-                if (username.equals("63CNTT2") && password.equals("ABCDEF")) {
-                    ChuyenManHinhHome(v);
+                if (username.equals("thanhtri") && password.equals("ABCDEF")) {
+                    ChuyenManHinhHome(username);
                 } else {
                     Toast.makeText(ActivityLogin.this, "Thông tin đăng nhập không chính xác hãy thử lại", Toast.LENGTH_SHORT).show();
                 }
@@ -38,9 +38,11 @@ public class ActivityLogin extends AppCompatActivity {
             }
         });
     }
-    public void ChuyenManHinhHome(View v){
-        Intent iQuiz = new Intent(this,ActivityHome.class);
-        startActivity(iQuiz);
+
+    public void ChuyenManHinhHome(String username){
+        Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("USERNAME", username);
+        startActivity(intent);
     }
 }
 
