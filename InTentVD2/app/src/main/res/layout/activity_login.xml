@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bglogin">
+
+
+    <TextView
+        android:id="@+id/tvtieudelogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="MÀN HÌNH ĐĂNG NHẬP"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="101dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="124dp"
+        android:text="Username"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvtieudelogin" />
+
+    <EditText
+        android:id="@+id/edtUserName"
+        android:layout_width="279dp"
+        android:layout_height="44dp"
+        android:hint="Đây là chỗ nhập username"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvUsername"
+        app:layout_constraintTop_toTopOf="@+id/tvUsername" />
+
+    <TextView
+        android:id="@+id/tvPass"
+        android:layout_width="101dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:text="PassWord"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtUserName" />
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="279dp"
+        android:layout_height="44dp"
+        android:hint="Đây là chỗ nhập password"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/tvPass"
+        app:layout_constraintTop_toTopOf="@+id/tvPass" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="101dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:text="UserEmail"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPass" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="279dp"
+        android:layout_height="44dp"
+        android:hint="Đây là chỗ nhập email"
+        android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/tvEmail"
+        app:layout_constraintTop_toTopOf="@+id/tvEmail" />
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="151dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="140dp"
+        android:onClick="ChuyenManHinhHome"
+        android:text="Xác nhận"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
