@@ -1,64 +1,84 @@
 package thanhtri.bottomnavigationview_fragments;
 
+
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import androidx.fragment.app.Fragment;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentQuiz#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentQuiz extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView TVcauhoi;
+    private RadioGroup rdgrcautraloi;
+    private TextView TVdapan;
+    private List<CauHoi> dscauhoi;
+    private int thutuhientai = 0;
+    private Button btncauhoiketiep;
 
     public FragmentQuiz() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentQuiz.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentQuiz newInstance(String param1, String param2) {
-        FragmentQuiz fragment = new FragmentQuiz();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quiz, container, false);
+        View view = inflater.inflate(R.layout.fragment_quiz, container, false);
+
+        TVcauhoi = view.findViewById(R.id.TVcauhoi);
+        rdgrcautraloi = view.findViewById(R.id.rdgrcautraloi);
+        TVdapan = view.findViewById(R.id.TVdapan);
+        btncauhoiketiep = view.findViewById(R.id.btncauhoiketiep);
+
+        DSCauHoi ds = new DSCauHoi();
+        dscauhoi = ds.LayDSCauHoi();
+
+        HienThiCauHoi();
+
+        btncauhoiketiep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (thutuhientai < dscauhoi.size() - 1) {
+                    thutuhientai++;
+                } else {
+                    thutuhientai = 0;
+                }
+                HienThiCauHoi();
+            }
+        });
+
+        return view;
+    }
+
+    private void HienThiCauHoi() {
+        CauHoi cauhoihientai = dscauhoi.get(thutuhientai);
+        TVcauhoi.setText(cauhoihientai.LayCauHoi());
+
+        rdgrcautraloi.removeAllViews();
+
+        String[] dsdapan = cauhoihientai.LayDSDapAn();
+        for (String dapan : dsdapan) {
+            RadioButton radioButton = new RadioButton(getActivity());
+            radioButton.setText(dapan);
+            rdgrcautraloi.addView(radioButton);
+        }
+
+        rdgrcautraloi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton selectedRadioButton = group.findViewById(checkedId);
+                String dapanDaChon = selectedRadioButton.getText().toString();
+                String dapanDung = cauhoihientai.LayDapAnDung();
+                if (dapanDaChon.equals(dapanDung)) {
+                    TVdapan.setText("Bạn đã chọn đáp án đúng!");
+                } else {
+                    TVdapan.setText("Bạn đã chọn đáp án sai, đáp án đúng là " + dapanDung);
+                }
+            }
+        });
     }
 }

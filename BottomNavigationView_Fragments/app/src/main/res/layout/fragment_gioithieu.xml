@@ -1,14 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentGioithieu">
+    android:padding="0dp"
+    tools:context=".MainActivity"
+    android:id="@+id/constraint_layout">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imagebg"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_gioithieu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/TVhoten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/textview_ten"
+        android:padding="12dp"
+        android:text="Nguyễn Thành Trí"
+        android:textColor="#F0F0F6"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <Button
+        android:id="@+id/btnttsinhvien"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="Thông tin sinh viên"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVhoten" />
+
+    <Button
+        android:id="@+id/btnttcanhan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="Thông tin cá nhân"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnttsinhvien" />
+
+    <Button
+        android:id="@+id/btnttlienlac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="Thông tin liên lạc"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnttcanhan" />
+
+    <Button
+        android:id="@+id/btnttkhac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="Thông tin khác"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnttlienlac" />
+
+    <TextView
+        android:id="@+id/ttct0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nguyễn Thành Trí  63131548    63.MMT "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnttkhac"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview_ten"
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/ttct1"
+        android:layout_width="00dp"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh: 21/12/2002, Giới tính: Nam"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttct0"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_ten"
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/ttct2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại: 0123456789, Mail: tri.nt.63cntt@ntu.edu.vn"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttct1"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_ten"
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/ttct3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sở thích: xxxxxxxx, Dự định: xxxxxxxxx"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttct2"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_ten"
+        android:textColor="#F0F0F6"
+        android:padding="12dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
