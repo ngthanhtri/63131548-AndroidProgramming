@@ -1,64 +1,45 @@
 package thanhtri.bottomnavigationview_fragments;
 
+
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentAnh#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
+
+import java.util.ArrayList;
+
 public class FragmentAnh extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private LandScapeAdapter landScapeAdapter;
+    private ArrayList<LandScape> viewPagerDatas;
+    private ViewPager2 viewPager2Land;
 
     public FragmentAnh() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentAnh.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentAnh newInstance(String param1, String param2) {
-        FragmentAnh fragment = new FragmentAnh();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anh, container, false);
+        View view = inflater.inflate(R.layout.fragment_anh, container, false);
+
+        viewPagerDatas = getDataForViewPager();
+        viewPager2Land = view.findViewById(R.id.vp2Land);
+        landScapeAdapter = new LandScapeAdapter(requireContext(), viewPagerDatas);
+        viewPager2Land.setAdapter(landScapeAdapter);
+
+        return view;
+    }
+
+    private ArrayList<LandScape> getDataForViewPager() {
+        ArrayList<LandScape> dsDuLieu = new ArrayList<>();
+        LandScape landScape1 = new LandScape("ronaldo", "Ronaldo siuuuuu");
+        dsDuLieu.add(landScape1);
+        dsDuLieu.add(new LandScape("messi", "Messi"));
+        dsDuLieu.add(new LandScape("mbappe", "Mbappe"));
+        dsDuLieu.add(new LandScape("neymar", "Neymar"));
+        return dsDuLieu;
     }
 }

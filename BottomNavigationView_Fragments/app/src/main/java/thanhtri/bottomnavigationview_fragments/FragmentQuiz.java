@@ -1,14 +1,17 @@
 package thanhtri.bottomnavigationview_fragments;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import java.util.List;
 
@@ -55,6 +58,8 @@ public class FragmentQuiz extends Fragment {
     }
 
     private void HienThiCauHoi() {
+        TVdapan.setText("");
+
         CauHoi cauhoihientai = dscauhoi.get(thutuhientai);
         TVcauhoi.setText(cauhoihientai.LayCauHoi());
 

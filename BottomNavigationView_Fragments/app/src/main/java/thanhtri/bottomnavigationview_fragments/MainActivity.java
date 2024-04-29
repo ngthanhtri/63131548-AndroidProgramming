@@ -15,23 +15,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentTrangchu()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentGioithieu()).commit();
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
-        Fragment selectedFragment = null;
+        Fragment fragmentDaChon = null;
         int itemId = item.getItemId();
-        if (itemId == R.id.navigation_trangchu) {
-            selectedFragment = new FragmentTrangchu();
-        } else if (itemId == R.id.navigation_gioithieu) {
-            selectedFragment = new FragmentGioithieu();
+        if (itemId == R.id.navigation_gioithieu) {
+            fragmentDaChon = new FragmentGioithieu();
+        } else if (itemId == R.id.navigation_music) {
+            fragmentDaChon = new FragmentMusic();
         } else if (itemId == R.id.navigation_quiz) {
-            selectedFragment = new FragmentQuiz();
+            fragmentDaChon = new FragmentQuiz();
         } else if (itemId == R.id.navigation_anh) {
-            selectedFragment = new FragmentAnh();
+            fragmentDaChon = new FragmentAnh();
         }
-        if (selectedFragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        if (fragmentDaChon != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentDaChon).commit();
         }
         return true;
     };

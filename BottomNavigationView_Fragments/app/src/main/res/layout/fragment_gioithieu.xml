@@ -94,7 +94,7 @@
         android:id="@+id/ttct0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nguyễn Thành Trí  63131548    63.MMT "
+        android:text="Nguyễn Thành Trí  63131548    63.MTT "
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="gone"
