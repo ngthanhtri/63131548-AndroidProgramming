@@ -1,4 +1,4 @@
-package thanhtri.com.recyclerview;
+package thanhtri.bottomnavigationview_fragments;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("thanhtri.com.recyclerview", appContext.getPackageName());
+        assertEquals("thanhtri.bottomnavigationview_fragments", appContext.getPackageName());
     }
 }

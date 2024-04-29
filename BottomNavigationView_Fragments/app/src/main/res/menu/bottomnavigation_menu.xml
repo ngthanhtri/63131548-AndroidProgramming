@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_trangchu"
+        android:title="Trang chủ"
+        android:icon="@drawable/ic_trangchu" />
+    <item
+        android:id="@+id/navigation_gioithieu"
+        android:title="Giới thiệu"
+        android:icon="@drawable/ic_gioithieu" />
+    <item
+        android:id="@+id/navigation_quiz"
+        android:title="Quiz"
+        android:icon="@drawable/ic_quiz" />
+    <item
+        android:id="@+id/navigation_anh"
+        android:title="Ảnh"
+        android:icon="@drawable/ic_anh" />
+</menu>
