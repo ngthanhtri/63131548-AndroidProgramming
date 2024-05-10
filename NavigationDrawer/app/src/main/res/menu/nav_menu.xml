@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_trangchu"
+        android:title="Trang chủ"
+        android:icon="@drawable/ic_trangchu" />
+    <item
+        android:id="@+id/nav_thongtin"
+        android:title="Thông tin sinh viên"
+        android:icon="@drawable/ic_thongtin" />
+    <item
+        android:id="@+id/nav_tieusu"
+        android:title="Tiểu sử học tập"
+        android:icon="@drawable/ic_tieusu" />
+    <item
+        android:id="@+id/nav_hinhanh"
+        android:title="Hình ảnh"
+        android:icon="@drawable/ic_hinhanh" />
+    <item
+        android:id="@+id/nav_quiz"
+        android:title="Quiz"
+        android:icon="@drawable/ic_quiz" />
+</menu>
