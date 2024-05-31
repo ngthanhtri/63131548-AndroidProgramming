@@ -1,3 +1,6 @@
+![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=ngthanhtri&repo=63131548-CuoiKiAndroidProgramming)
+
+
 # Thống Kê Ngôn Ngữ Hàng Đầu
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ngthanhtri&layout=compact)
