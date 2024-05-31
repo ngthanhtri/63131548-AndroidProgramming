@@ -1,4 +1,4 @@
-# Cấu Trúc Của Một Ứng Dụng Android và Lý Thuyết Lập Trình
+# Cấu Trúc Của Một Ứng Dụng Android
 
 ## 1. Kiến Thức Cơ Bản về Android
 
