@@ -4,9 +4,9 @@
 
 Trước khi đi sâu vào cấu trúc của một ứng dụng Android, hãy điểm qua một số kiến thức cơ bản về lập trình Android:
 
-- **Ngôn Ngữ Lập Trình:** Java hoặc Kotlin.
+- **Ngôn Ngữ Lập Trình:** **Java**, **Kotlin**.
 - **Giao Diện Người Dùng:** XML (Extensible Markup Language).
-- **Môi Trường Phát Triển:** Android Studio.
+- **Môi Trường Phát Triển:** ![Android Studio](https://developer.android.com/studio/images/studio-icon-stable.png)
 - **Quản Lý Phiên Bản:** Git (hoặc bất kỳ công cụ quản lý phiên bản nào khác).
 
 ## 2. Cấu Trúc Tổng Quan của Một Ứng Dụng Android
